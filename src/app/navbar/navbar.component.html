@@ -1,0 +1,46 @@
+<!-- Navbar Component -->
+<app-header></app-header>
+<nav class="main-nav navbar navbar-expand-lg sticky-top bg-white shadow">
+    <a class="navbar-brand ms-3"> 
+        <img src="assets/images/umang-logo.png" alt="UMANG Logo" class="navbar-logo" loading="lazy"
+            fetchpriority="high" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas"
+        aria-controls="navbarOffcanvas" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarOffcanvas" aria-labelledby="navbarOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="navbarOffcanvasLabel">
+                <img src="assets/images/umang-logo.png" alt="UMANG Logo" class="navbar-logo" loading="lazy"
+                    fetchpriority="high" />
+            </h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav ms-auto gap-3 me-2  d-flex align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Schemes</a>
+                </li>
+                <li>
+                    <a class="nav-link" id="search" href="#"><i class="bi bi-search"></i></a>
+                </li>
+                <li>
+                    <a class=" btn btn-login m-0" href="#">Login/Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,130 @@
+<section class="py-5 px-3 px-md-5 bg-lightblue">
+    <div class="container">
+      <div class="row">
+        <!-- State Cards (Left) -->
+        <div class="col-lg-6 col-md-6">
+          <!-- Grey Background Card -->
+          <div class="rounded-5 p-4 grey-card">
+            <ul class="states-card list-unstyled row row-cols-1 row-cols-md-2 g-3">
+              <!-- Delhi -->
+              <li class="card-item cards cardDelhi col">
+                <a
+                  routerLink="/services"
+                  [queryParams]="{ stateId: 30 }"
+                  class="states-card__body d-flex flex-column align-items-center justify-content-center p-3 rounded-5 shadow-sm text-decoration-none text-center"
+                  (mouseenter)="hoveredCard = 'delhi'"
+                  (mouseleave)="hoveredCard = ''"
+                >
+                  <span class="img-col mb-2">
+                    <img
+                      [ngClass]="{ 'd-none': hoveredCard === 'delhi', 'd-block': hoveredCard !== 'delhi' }"
+                      src="assets/images/delhi-light.png"
+                      alt="Delhi Light"
+                      class="img-size"
+                    >
+                    <img
+                      [ngClass]="{ 'd-block': hoveredCard === 'delhi', 'd-none': hoveredCard !== 'delhi' }"
+                      src="assets/images/delhi-dark.png"
+                      alt="Delhi Dark"
+                      class="img-size"
+                    >
+                  </span>
+                  <h5 class="mb-0 fs-5 fw-medium">Delhi</h5>
+                </a>
+              </li>
+              <!-- Gujarat -->
+              <li class="card-item cards cardGujarat col">
+                <a
+                  routerLink="/services"
+                  [queryParams]="{ stateId: 24 }"
+                  class="states-card__body d-flex flex-column align-items-center justify-content-center p-3 rounded-5 shadow-sm text-decoration-none text-center"
+                  (mouseenter)="hoveredCard = 'gujarat'"
+                  (mouseleave)="hoveredCard = ''"
+                >
+                  <span class="img-col mb-2">
+                    <img
+                      [ngClass]="{ 'd-none': hoveredCard === 'gujarat', 'd-block': hoveredCard !== 'gujarat' }"
+                      src="assets/images/gujarat-light.png"
+                      alt="Gujarat Light"
+                      class="img-size"
+                    >
+                    <img
+                      [ngClass]="{ 'd-block': hoveredCard === 'gujarat', 'd-none': hoveredCard !== 'gujarat' }"
+                      src="assets/images/gujarat-dark.png"
+                      alt="Gujarat Dark"
+                      class="img-size"
+                    >
+                  </span>
+                  <h5 class="mb-0 fs-5 fw-medium">Gujarat</h5>
+                </a>
+              </li>
+              <!-- Haryana -->
+              <li class="card-item cards cardHaryana col">
+                <a
+                  routerLink="/services"
+                  [queryParams]="{ stateId: 6 }"
+                  class="states-card__body d-flex flex-column align-items-center justify-content-center p-3 rounded-5 shadow-sm text-decoration-none text-center"
+                  (mouseenter)="hoveredCard = 'haryana'"
+                  (mouseleave)="hoveredCard = ''"
+                >
+                  <span class="img-col mb-2">
+                    <img
+                      [ngClass]="{ 'd-none': hoveredCard === 'haryana', 'd-block': hoveredCard !== 'haryana' }"
+                      src="assets/images/haryana-light.png"
+                      alt="Haryana Light"
+                      class="img-size"
+                    >
+                    <img
+                      [ngClass]="{ 'd-block': hoveredCard === 'haryana', 'd-none': hoveredCard !== 'haryana' }"
+                      src="assets/images/haryana-dark.png"
+                      alt="Haryana Dark"
+                      class="img-size"
+                    >
+                  </span>
+                  <h5 class="mb-0 fs-5 fw-medium">Haryana</h5>
+                </a>
+              </li>
+              <!-- Maharashtra -->
+              <li class="card-item cards cardMaharashtra col">
+                <a
+                  routerLink="/services"
+                  [queryParams]="{ stateId: 27 }"
+                  class="states-card__body d-flex flex-column align-items-center justify-content-center p-3 rounded-5 shadow-sm text-decoration-none text-center"
+                  (mouseenter)="hoveredCard = 'maharashtra'"
+                  (mouseleave)="hoveredCard = ''"
+                >
+                  <span class="img-col mb-2">
+                    <img
+                      [ngClass]="{ 'd-none': hoveredCard === 'maharashtra', 'd-block': hoveredCard !== 'maharashtra' }"
+                      src="assets/images/maharashtra-light.png"
+                      alt="Maharashtra Light"
+                      class="img-size"
+                    >
+                    <img
+                      [ngClass]="{ 'd-block': hoveredCard === 'maharashtra', 'd-none': hoveredCard !== 'maharashtra' }"
+                      src="assets/images/maharashtra-dark.png"
+                      alt="Maharashtra Dark"
+                      class="img-size"
+                    >
+                  </span>
+                  <h5 class="mb-0 fs-5 fw-medium">Maharashtra</h5>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Text and Button (Right) -->
+        <div class="col-lg-6 col-md-6 d-flex align-items-center">
+          <div class="px-4 px-lg-5 d-flex flex-column justify-content-center h-100">
+            <h1 class="mb-4">Services by State</h1>
+            <p class="fs-5 text-muted mb-4">
+              Explore services offered by different States and Union Territories of India!
+            </p>
+            <a routerLink="/services" class="btn btn-primary px-4 py-2 fw-medium rounded-3 buttonexp">
+              Explore 30+ States
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

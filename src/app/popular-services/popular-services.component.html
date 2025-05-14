@@ -1,0 +1,30 @@
+<!-- Popular Services -->
+<section id="popular-services" class="popular-services-section py-5 bg-light">
+    <div class="container">
+      <!-- <div class="text-center mb-4"> -->
+        <h2 class="popular-services-title">Popular Services</h2>
+        <p class="popular-services-subtitle">Explore the popularly used government services!</p>
+      <!-- </div> -->
+      <div class="swiper multi-slides">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let item of newsItems">
+            <div class="service-card">
+              <div class="service-card__body cursor-pointer">
+                <div class="service-card__body__img">
+                  <img [src]="item.image" opacity="1" fetchpriority="low" width="90" height="90" [alt]="item.title">
+                </div>
+                <div class="service-card__body__content">
+                  <h4 class="mb-2">{{ item.title }}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </section>

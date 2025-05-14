@@ -1,0 +1,140 @@
+/* Container */
+.popular-services-section {
+    position: relative;
+  }
+  
+  /* Text alignment */
+  .popular-services-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .popular-services-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Swiper container */
+  .popular-services-section .swiper {
+    padding: 20px 0 50px 0;
+    position: relative;
+    overflow: hidden; /* Ensure cards don't overflow */
+  }
+  
+  /* Swiper wrapper */
+  .popular-services-section .swiper-wrapper {
+    display: flex;
+    align-items: center; /* Center cards vertically */
+  }
+  
+  /* Swiper slide */
+  .popular-services-section .swiper-slide {
+    width: 250px; /* Match UMANG card width */
+    height: 190px;
+    margin-right: 10px; /* Match UMANG spacing */
+    display: flex;
+    justify-content: center; /* Center card within slide */
+  }
+  
+  /* Service card */
+  .popular-services-section .service-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: 100%; /* Ensure card takes full slide width */
+    max-width: 310.2px; /* Cap width to match UMANG */
+  }
+  
+  /* Hover effect */
+  .popular-services-section .service-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Card body */
+  .popular-services-section .service-card__body {
+    padding: 20px;
+  }
+  
+  /* Card image */
+  .popular-services-section .service-card__body__img img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+  }
+  
+  /* Card title */
+  .popular-services-section .service-card__body__content h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    line-height: 1.4;
+  }
+  
+  /* Navigation arrows (hidden by default) */
+  .popular-services-section .swiper-button-prev,
+  .popular-services-section .swiper-button-next {
+    color: #00599d;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: rgba(232, 230, 230, 0.8);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 55%; /* Center vertically */
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+  
+  /* Arrow icons */
+  .popular-services-section .swiper-button-prev::after,
+  .popular-services-section .swiper-button-next::after {
+    font-size: 20px;
+  }
+  
+  /* Show arrows on hover */
+  .popular-services-section:hover .swiper-button-prev,
+  .popular-services-section:hover .swiper-button-next {
+    opacity: 1;
+  }
+  
+  /* Position arrows */
+  .popular-services-section .swiper-button-prev {
+    left: 9px;
+  }
+  
+  .popular-services-section .swiper-button-next {
+    right: 9px;
+  }
+  
+  /* Pagination bullets */
+  .popular-services-section .swiper-pagination {
+    position: relative;
+    bottom: -10px;
+    display: flex;
+    justify-content: center;
+    width:100%;
+    /* margin-top: 20px; */
+  }
+  
+  /* Pagination bullet */
+  .popular-services-section .swiper-pagination-bullet {
+    background: #b5b5b5;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+  }
+  
+  /* Active bullet */
+  .popular-services-section .swiper-pagination-bullet-active {
+    background: #00599d;
+  }

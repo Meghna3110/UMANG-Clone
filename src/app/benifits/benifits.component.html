@@ -1,0 +1,44 @@
+<section class="benefits-section">
+    <div class="container-fluid position-relative keyfeature-wrapper">
+      <div class="row">
+        <div class="container benefit-container">
+          <div class="heading-wrapper">
+            <h2 class="main-heading mb-1 text-white">Benefits of UMANG</h2>
+            <p class="text-white Small">
+              An initiative by National e-Governance Division (NeGD), Ministry of Electronics and Information Technology (MeitY).
+              UMANG strives to be the one stop gateway to all government schemes and services through different channels like
+              Mobile Application(iOS, Android), Chatbot, Voice Bot and Website.
+            </p>
+          </div>
+          <div class="row benefit-row">
+            <div class="col-lg-7 col-md-12 col-sm-12 benefit-col-left position-relative">
+              <div class="benefit-card-list row">
+                <div class="benefit-card-col col-md-6 col-sm-12" *ngFor="let benefit of benefits">
+                  <div class="benefit-card">
+                    <div class="benefit-card__header d-flex flex-column">
+                      <div class="benefit-thumbnail">
+                        <img [src]="benefit.icon" alt="benefit-icon" width="52px" height="52px" loading="lazy"
+                          fetchpriority="low" class="resp-image mb-4">
+                      </div>
+                      <h4>{{ benefit.title }}</h4>
+                    </div>
+                    <ul class="benefits-list-item">
+                      <li class="benefits-list-items" *ngFor="let item of benefit.items">
+                        <span class="benefits-list-items-label">{{ item }}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Replace the existing <img class="avatar" ...> with this -->
+    <picture class="avatar">
+        <source srcset="https://media.umangapp.in/cdn/landing/theme/avatar.webp" type="image/webp">
+        <img src="https://media.umangapp.in/cdn/landing/theme/avatar.png" width="570px" height="764px" loading="lazy"
+          fetchpriority="low" alt="avatar">
+      </picture>
+    </div>
+  </section>

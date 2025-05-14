@@ -1,0 +1,136 @@
+.benefits-section {
+  background-color: #034f9b;
+  padding: 60px 0 0;
+  position: relative;
+
+  .keyfeature-wrapper {
+    .benefit-container {
+      max-width: 1200px;
+      margin: 0 auto;
+
+      /* Replace the existing .heading-wrapper styles with this */
+.heading-wrapper {
+    text-align: left; /* Changed from center to left to match UMANG website */
+    margin-bottom: 40px;
+  
+    .main-heading {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+  
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 1100px;
+      margin: 0; /* Removed auto margins to align left */
+    }
+  }
+
+      .benefit-row {
+        .benefit-col-left {
+          .benefit-card-list {
+            .benefit-card-col {
+              margin-bottom: 30px;
+
+              .benefit-card {
+                background: #fff;
+                /* color: #000; */
+                border-radius: 10px;
+                padding: 20px;
+                height: 100%;
+                transition: transform 0.3s ease;
+
+                &:hover {
+                  transform: translateY(-5px);
+                }
+
+                .benefit-card__header {
+                  text-align: center;
+
+                  .benefit-thumbnail {
+                    img {
+                      width: 52px;
+                      height: 52px;
+                      object-fit: contain;
+                    }
+                  }
+
+                  h4 {
+                    color: #034f9b;
+                    font-size: 1.25rem;
+                    font-weight: 600;
+                    margin: 10px 0;
+                  }
+                }
+
+                .benefits-list-item {
+                  list-style: none;
+                  padding: 0;
+                  margin: 0;
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 8px;
+                  
+
+                  .benefits-list-items {
+                    color: #fff;
+                    font-size: 0.8rem;
+                    line-height: 1.8;
+                    position: relative;
+                    padding: 6px 12px;
+                    margin-bottom: 8px;
+                
+                    /* // ✅ Add border and border radius */
+                    border: 1px solid #ccc;
+                    border-radius: 25px;
+                    background-color: #f9f9f9;
+                    position: relative;
+                    list-style: none;
+                
+                    display: inline-block;
+
+                    &:before {
+                      content: none;
+                      position: absolute;
+                      left: 0;
+                      color: #007bff;
+                      font-size: 1.2rem;
+                    }
+
+                    .benefits-list-items-label {
+                      color: #000;
+                      padding-left: 12px; /* shift label after the bullet*/
+                        display: inline-block;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Replace the existing .avatar styles with this */
+/* Replace the existing .avatar styles with this (or ensure these are present) */
+.avatar {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 570px;
+  height: 764px;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* // ✅ Hide on screen width below 1024px */
+  @media (max-width: 1327px) {
+    display: none;
+  }
+}
+}

@@ -1,0 +1,28 @@
+<!-- Popular Services -->
+<section id="trending" class="trending-section py-5 bg-light">
+    <div class="container">
+        <h2 class="trending-title">Trending</h2>
+        <p class="trending-subtitle">Discover the most popular services UMANG has to offer. These services are the most used services on the platform.</p>
+        <div class="swiper multi-slides">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" *ngFor="let item of newsItems">
+                    <div class="service-card">
+                        <div class="service-card__body cursor-pointer">
+                            <div class="service-card__body__img">
+                                <img [src]="item.image" opacity="1" fetchpriority="low" width="90" height="90" [alt]="item.title">
+                            </div>
+                            <div class="service-card__body__content">
+                                <h4 class="mb-2">{{ item.title }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+</section>

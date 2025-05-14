@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+:host {
+  font-family: 'Roboto', sans-serif;
+  display: block;
+}
+
+/* Grey Card Container */
+.grey-card {
+  background-color: #d5dce3;
+  width: 100%;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+}
+
+/* State Cards List */
+.states-card {
+  list-style: none;
+  padding: 0;
+}
+
+/* State Card Body */
+.states-card__body {
+  width: 100%;
+  background-color: #ffffff;
+  color: #212529;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.states-card__body:hover {
+  background-color: #033861;
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Images */
+.img-col img {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+}
+
+/* Button */
+.buttonexp {
+  width: fit-content;
+  background-color: #045592;
+  color: #fff;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.buttonexp:hover {
+  background-color: #033861;
+}
+
+/* Responsive Adjustments */
+
+/* Extra Large Screens (≥1200px) */
+@media (min-width: 1200px) {
+  section.bg-lightblue {
+    padding: 5rem 3rem;
+  }
+
+  .grey-card {
+    padding: 2rem;
+  }
+
+  .states-card__body {
+    height: 220px;
+    padding: 1.5rem;
+  }
+
+  .img-col img {
+    max-width: 120px;
+  }
+}
+
+/* Large Screens (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  section.bg-lightblue {
+    padding: 4rem 2rem;
+  }
+
+  .grey-card {
+    padding: 1.5rem;
+  }
+
+  .states-card__body {
+    height: 200px;
+    padding: 1.25rem;
+  }
+
+  .img-col img {
+    max-width: 100px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p.fs-5 {
+    font-size: 1rem;
+  }
+}
+
+/* Medium Screens (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  section.bg-lightblue {
+    padding: 3rem 2rem;
+  }
+
+  .grey-card {
+    padding: 1.25rem;
+  }
+
+  .states-card__body {
+    height: 180px;
+    padding: 1rem;
+  }
+
+  .img-col img {
+    max-width: 90px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  p.fs-5 {
+    font-size: 0.95rem;
+  }
+
+  .buttonexp {
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+/* Small Screens (≤767px) */
+@media (max-width: 767px) {
+  section.bg-lightblue {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .grey-card {
+    padding: 1rem;
+  }
+
+  .states-card__body {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .img-col {
+    margin-right: 1rem;
+    margin-bottom: 0;
+  }
+
+  .img-col img {
+    max-width: 80px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  p.fs-5 {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .buttonexp {
+    margin: 0 auto;
+    padding: 0.5rem 1.5rem;
+  }
+
+  .col-lg-6.d-flex.align-items-center {
+    margin-top: 2rem;
+    text-align: center;
+  }
+}
+
+/* Extra Small Screens (≤575px) */
+@media (max-width: 575px) {
+  section.bg-lightblue {
+    padding: 2rem 1rem;
+  }
+
+  .grey-card {
+    padding: 0.75rem;
+  }
+
+  .states-card__body {
+    padding: 0.75rem;
+  }
+
+  .img-col img {
+    max-width: 70px;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  p.fs-5 {
+    font-size: 0.875rem;
+  }
+
+  .buttonexp {
+    padding: 0.5rem 1.25rem;
+  }
+}

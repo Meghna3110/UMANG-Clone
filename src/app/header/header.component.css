@@ -1,0 +1,19 @@
+.row {
+    background-color: #0056b3;
+    color: white;
+    padding: 2px 0 !important;/*10px if screen is not responsive due to padding*/
+  }
+
+img{
+    height: 30px;
+    width: auto;
+}
+
+@media (min-width: 300px)  and (max-width: 450px) { 
+
+    .container-fluid .row .brandimg{
+        padding: 5px 0 !important;
+        justify-content: space-evenly !important;
+    }
+
+ }

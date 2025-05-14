@@ -1,0 +1,213 @@
+
+  .row .top-bar-logo {
+    height: 30px !important;
+    width: auto; /* Maintain aspect ratio */
+  }
+  /* .top-bar img {
+    height: 30px;
+  } */
+  
+  /* .top-bar .icon {
+    width: 24px;
+    height: 24px;
+    /* margin-left: 10px; 
+  } */
+  /* #search {
+    color: black;
+  } */
+  .top-bar .custbtn {
+    padding: 0.25rem 0.5rem;
+    /* font-size: 0.9rem; */
+    display:flex;
+    align-items: center;
+  }
+  .top-bar .dropdown-toggle {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+  }
+  .top-bar .dropdown-toggle i {
+    font-size: 1rem;
+  }
+  .main-nav {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .main-nav .navbar-logo {
+    height: 40px;
+  }
+  .main-nav .nav-link {
+    color: #333;
+    font-weight: 500;
+    margin-right: 15px;
+    position: relative;
+    padding: 10px 15px;
+    transition: color 0.2s ease;
+  }
+  #search{
+    color:black;
+  }
+  #search.hover{
+    border-bottom:none;
+  }
+  .main-nav .nav-link:hover {
+    color: #0056b3;
+}
+.main-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    left: 0;
+    background-color: #0056b3;
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+    transform: scaleX(0);
+}
+.main-nav .nav-link:hover::after {
+    transform: scaleX(1);
+}
+  .main-nav .nav-link.active {
+    color: #0056b3;
+    /* border-bottom: 2px solid #007bff; */
+  }
+  .main-nav .nav-link.active::after {
+    transform: scaleX(1);
+    background-color: #0056b3;
+}
+  .main-nav .btn-login {
+    background-color: #0056b3;
+    color: white;
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 5px;
+  }
+  .main-nav .btn-login:hover {
+    background-color: #034e9e;
+    color: white;
+    border-bottom: none;
+  }
+  .main-nav .nav-link i {
+    font-size: 1rem;
+    margin-right: 0.25rem;
+   
+  }
+  /* .main-nav .search-icon {
+    width: 20px;
+    height: 20px;
+    /* margin-right: 15px; 
+  } */
+  /* .btn{
+    background-color: #0056b3;
+    border: 1px solid white;
+    color:white;
+    border-radius: 3px;
+  } */
+
+  /* Off-canvas styles */
+.offcanvas {
+    background-color: #f8f9fa; /* Light background for the off-canvas */
+    width: 250px; /* Fixed width for the off-canvas */
+  }
+  .offcanvas-header {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+  .offcanvas-header .navbar-logo {
+    height: 40px;
+  }
+  
+  .offcanvas-body {
+    padding: 1rem;
+  }
+  /* .offcanvas .navbar-nav {
+    flex-direction: column; ----
+    gap: 0.5rem; }
+   */
+  .offcanvas .nav-link {
+    padding: 0.75rem 1rem;
+    border-radius: none;
+    font-size:small;
+    position:relative;
+  }
+  .offcanvas.nav-link::after{
+    content:"";
+    position: absolute;
+    bottom:-5px;
+    height:2px;
+    width:100%;
+    left:0;
+    background-color: #0056b3;
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+    transform: scaleX(0);
+  }
+  .offcanvas .nav-link:hover {
+    color: #0056b3;
+}
+  .offcanvas.nav-link:hover::after{
+    transform: scaleX(1);
+  }
+  /* .offcanvas .nav-link.active {
+    background-color: #e9ecef;
+} */
+.offcanvas .nav-link.active::after {
+    transform: scaleX(1);
+}
+  /* .offcanvas .nav-link:hover {
+    background-color: #e9ecef;
+    border-bottom: none; /* Remove the bottom border in off-canvas */
+    /* .offcanvas .nav-link:hover {
+        background-color: #e9ecef;
+        color: #0056b3;
+        border-bottom: 1px solid #0056b3;
+    } */
+  
+  /* .offcanvas .nav-link.active {
+    background-color: #e9ecef;
+    border-bottom: none; /* Remove the bottom border in off-canvas */
+    /* .offcanvas .nav-link:hover::after {
+        content: none;
+    } */
+    /* .offcanvas .nav-link.active {
+        border-bottom: 1px solid #0056b3;
+    }
+    .offcanvas .nav-link.active::after {
+        content: none;
+    } */
+    
+  .offcanvas .btn-login {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  
+  /* .nav-item:hover{
+    border-bottom: 1px solid #0056b3;
+  } */
+
+  /* .nav-item{
+    width: max-content;
+    /* font-size: 72px; 
+    position: relative;
+    cursor: pointer;
+  }
+  .nav-item::after{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    height: 2px;
+    width: 100%;
+    left: 0;
+    background-color: #0056b3;
+    transition: 0.3s;
+    transition-timing-function: easy-in-out;
+    transform: scaleX(0)
+  }
+  .nav-item:hover::after{
+    transform: scaleX(1)
+  } */

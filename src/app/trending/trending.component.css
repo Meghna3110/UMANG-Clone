@@ -1,0 +1,152 @@
+/* Container */
+.trending-section {
+    position: relative;
+}
+
+/* Text alignment */
+.trending-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.trending-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+/* Swiper container */
+.trending-section .swiper {
+    padding: 20px 0 50px 0;
+    position: relative;
+    overflow: hidden; /* Ensure cards don't overflow */
+}
+
+/* Swiper wrapper */
+.trending-section .swiper-wrapper {
+    display: flex;
+    align-items: center; /* Center cards vertically */
+}
+
+/* Swiper slide */
+.trending-section .swiper-slide {
+    width: 250px; /* Match UMANG card width */
+    height: 190px;
+    margin-right: 10px; /* Match UMANG spacing */
+    display: flex;
+    justify-content: center; /* Center card within slide */
+}
+
+/* Service card */
+.trending-section .service-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: 100%; /* Ensure card takes full slide width */
+    max-width: 310.2px; /* Cap width to match UMANG */
+}
+
+/* Hover effect */
+.trending-section .service-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Card body */
+.trending-section .service-card__body {
+    padding: 20px;
+}
+
+/* Card image */
+.trending-section .service-card__body__img img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+/* Card title */
+.trending-section .service-card__body__content h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Navigation arrows */
+.trending-section .swiper-button-prev,
+.trending-section .swiper-button-next {
+    color: #00599d;
+    background: rgba(232, 230, 230, 0.8);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    top: 55%; /* Center vertically */
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+/* Show arrows on smaller screens */
+@media (max-width: 1199px) {
+    .trending-section .swiper-button-prev,
+    .trending-section .swiper-button-next {
+        display: flex;
+    }
+}
+
+/* Arrow icons */
+.trending-section .swiper-button-prev::after,
+.trending-section .swiper-button-next::after {
+    font-size: 20px;
+}
+
+/* Position arrows */
+.trending-section .swiper-button-prev {
+    left: 9px;
+}
+
+.trending-section .swiper-button-next {
+    right: 9px;
+}
+
+/* Pagination bullets */
+.trending-section .swiper-pagination {
+    position: relative;
+    bottom: -10px;
+    display: none; /* Hidden by default */
+    justify-content: center;
+    width: 100%;
+}
+
+/* Show pagination on smaller screens */
+@media (max-width: 1199px) {
+    .trending-section .swiper-pagination {
+        display: flex;
+    }
+}
+
+/* Pagination bullet */
+.trending-section .swiper-pagination-bullet {
+    background: #b5b5b5;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+}
+
+/* Active bullet */
+.trending-section .swiper-pagination-bullet-active {
+    background: #00599d;
+}
+
+/* Disabled navigation buttons */
+.trending-section .swiper-button-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
