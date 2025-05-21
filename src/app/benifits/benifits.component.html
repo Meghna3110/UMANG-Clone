@@ -13,7 +13,7 @@
           <div class="row benefit-row">
             <div class="col-lg-7 col-md-12 col-sm-12 benefit-col-left position-relative">
               <div class="benefit-card-list row">
-                <div class="benefit-card-col col-md-6 col-sm-12" *ngFor="let benefit of benefits">
+                <div class="benefit-card-col col-md-6 col-sm-12" *ngFor="let benefit of benefits$ | async">
                   <div class="benefit-card">
                     <div class="benefit-card__header d-flex flex-column">
                       <div class="benefit-thumbnail">

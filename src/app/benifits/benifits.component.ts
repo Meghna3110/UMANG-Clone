@@ -1,15 +1,24 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
+// import { NgFor } from '@angular/common';
+import { Observable, of } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
+
+interface Benifit{
+  title:string,
+  icon:string,
+  items:Array<string>
+}
 @Component({
   selector: 'app-benifits',
-  imports: [NgFor],
+  imports: [CommonModule],
   standalone:true,
   templateUrl: './benifits.component.html',
   styleUrl: './benifits.component.css'
 })
 export class BenifitsComponent {
-  benefits = [
+  benefits$:Observable<any[]> = of([
     {
       title: 'All Services at one place',
       icon: 'assets/images/service-icon.png',
@@ -30,5 +39,5 @@ export class BenifitsComponent {
       icon: 'assets/images/transaction-icon.png',
       items: ['Status', 'Bills', 'Applications', 'and many more']
     }
-  ];
+  ]);
 }
