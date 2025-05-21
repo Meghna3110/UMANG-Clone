@@ -4,10 +4,11 @@ import { Component, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { NgFor } from '@angular/common';
 import {Swiper} from 'swiper';
 import {Navigation, Pagination} from 'swiper/modules';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-whats-new',
-  imports: [NgFor],
+  imports: [NgFor,RouterLink],
   standalone:true,
   templateUrl: './whats-new.component.html',
   styleUrl: './whats-new.component.css',
@@ -15,16 +16,16 @@ import {Navigation, Pagination} from 'swiper/modules';
 })
 export class WhatsNewComponent implements AfterViewInit {
   newsItems = [
-    { title: 'EPFO', image: 'assets/images/epfo.png' },
-    { title: 'Aadhaar', image: 'assets/images/aadhaar.png' },
-    { title: 'Department of Agriculture and...', image: 'assets/images/deptagri.png' },
-    { title: 'Sewa Setu - Assam', image: 'assets/images/sevasetu.png' },
-    { title: 'Revenue Department (Himachal Pradesh)', image: 'assets/images/revenuedpt.png' },
-    { title: 'Delhi Tourism', image: 'assets/images/delhitourism.png' },
-    { title: 'NDL India', image: 'assets/images/NDL.png' },
-    { title: 'Apuni Sarkar', image: 'assets/images/apunisarkaruk.png' },
-    { title: 'Poshna Tracker', image: 'assets/images/poshan.png' },
-    { title: 'Aaple Sarkar', image: 'assets/images/aaplesarkar.png' }
+    { id: 1, title: 'EPFO', image: 'assets/images/epfo.png' },
+    { id: 2, title: 'Aadhaar', image: 'assets/images/aadhaar.png' },
+    { id: 3, title: 'Department of Agriculture and...', image: 'assets/images/deptagri.png' },
+    { id: 4, title: 'Sewa Setu - Assam', image: 'assets/images/sevasetu.png' },
+    { id: 5, title: 'Revenue Department (Himachal Pradesh)', image: 'assets/images/revenuedpt.png' },
+    { id: 6, title: 'Delhi Tourism', image: 'assets/images/delhitourism.png' },
+    { id: 7, title: 'NDL India', image: 'assets/images/NDL.png' },
+    { id: 8, title: 'Apuni Sarkar', image: 'assets/images/apunisarkaruk.png' },
+    { id: 9, title: 'Poshna Tracker', image: 'assets/images/poshan.png' },
+    { id: 10, title: 'Aaple Sarkar', image: 'assets/images/aaplesarkar.png' }
   ];
 
   constructor() {}
