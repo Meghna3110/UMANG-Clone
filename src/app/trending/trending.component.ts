@@ -1,39 +1,50 @@
-import { Component, AfterViewInit, ViewEncapsulation } from '@angular/core';
+import { Component, AfterViewInit, OnInit, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { Swiper } from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
+import { RouterLink } from '@angular/router';
+import { ServiceService, WhatsNewItem } from '../cloneservice/service.service';
 
 @Component({
   selector: 'app-trending',
-  imports: [NgFor],
+  imports: [NgFor, RouterLink],
   standalone: true,
   templateUrl: './trending.component.html',
   styleUrl: './trending.component.css',
-  encapsulation: ViewEncapsulation.None // Ensure styles apply to Swiper
+  encapsulation: ViewEncapsulation.None
 })
-export class TrendingComponent implements AfterViewInit {
-  newsItems = [
-    { title: 'Jeevan Pramaan', image: 'assets/images/GenLifeCert.png' },
-    { title: 'Delhi Metro', image: 'assets/images/DelhiMetro.png' },
-    { title: 'Bhashini', image: 'assets/images/Bhashini.png' },
-    { title: 'EPFO', image: 'assets/images/epfo.png' },
-    { title: 'Indian Railways', image: 'assets/images/indianrailway.png' },
-  ];
-
+export class TrendingComponent implements OnInit, AfterViewInit {
+  @ViewChild('swiperContainer', { static: false }) swiperContainer!: ElementRef;
+  newsItems: WhatsNewItem[] = [];
   private swiperInstance: Swiper | null = null;
 
-  constructor() {}
+  constructor(private serviceService: ServiceService) {}
+
+  ngOnInit(): void {
+    this.serviceService.getTrendingItems().subscribe({
+      next: response => {
+        if (response.success) {
+          this.newsItems = response.data.filter(item => item.isVisible);
+          this.initializeSwiper(); // Reinitialize after data load
+        } else {
+          console.error('API Error:', response.message, response.errorMessage);
+        }
+      },
+      error: err => console.error('HTTP Error:', err)
+    });
+  }
 
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.initializeSwiper();
-      // Update Swiper on window resize
-      window.addEventListener('resize', () => this.updateSwiper());
-    }, 100);
+    this.initializeSwiper();
   }
 
   private initializeSwiper(): void {
-    this.swiperInstance = new Swiper('.multi-slides', {
+    if (!this.swiperContainer?.nativeElement) {
+      console.warn('Swiper container not found');
+      return;
+    }
+
+    this.swiperInstance = new Swiper(this.swiperContainer.nativeElement, {
       modules: [Navigation, Pagination],
       slidesPerView: 5,
       slidesPerGroup: 1,
@@ -46,74 +57,41 @@ export class TrendingComponent implements AfterViewInit {
       },
       pagination: {
         el: '.swiper-pagination',
-        clickable: true,
-        renderBullet: (index, className) => {
-          if (index < this.newsItems.length) {
-            return `<span class="${className}"></span>`;
-          }
-          return '';
-        }
+        clickable: true
       },
       breakpoints: {
-        0: {
-          slidesPerView: 1,
-          slidesPerGroup: 1,
-          spaceBetween: 10
-        },
-        640: {
-          slidesPerView: 2,
-          slidesPerGroup: 1,
-          spaceBetween: 10
-        },
-        768: {
-          slidesPerView: 3,
-          slidesPerGroup: 1,
-          spaceBetween: 10
-        },
-        1024: {
-          slidesPerView: 4,
-          slidesPerGroup: 1,
-          spaceBetween: 10
-        },
-        1200: {
-          slidesPerView: 5,
-          slidesPerGroup: 1,
-          spaceBetween: 10
-        }
+        0: { slidesPerView: 1 },
+        640: { slidesPerView: 2 },
+        768: { slidesPerView: 3 },
+        1024: { slidesPerView: 4 },
+        1200: { slidesPerView: 5 }
       }
     });
 
-    // Initial update to hide/show navigation and pagination
+    console.log('Swiper instance:', this.swiperInstance);
     this.updateSwiper();
   }
 
   private updateSwiper(): void {
-    if (!this.swiperInstance) return;
+    if (!this.swiperInstance) {
+      console.warn('Swiper instance is not initialized');
+      return;
+    }
 
     const isLargeScreen = window.innerWidth >= 1200;
-    const navigation = this.swiperInstance.params.navigation;
-    const pagination = this.swiperInstance.params.pagination;
+    const visibleItems = this.newsItems.length;
 
-    if (isLargeScreen) {
-      // Disable navigation and pagination on large screens
-      if (navigation && typeof navigation !== 'boolean') {
-        navigation.enabled = false;
-      }
-      if (pagination && typeof pagination !== 'boolean') {
-        pagination.el = null; // Detach pagination
-      }
+    if (isLargeScreen && visibleItems <= 5) {
+      this.swiperInstance.params.navigation = { enabled: false };
       this.swiperInstance.navigation?.destroy();
-      this.swiperInstance.pagination?.destroy();
     } else {
-      // Enable navigation and pagination on smaller screens
-      if (navigation && typeof navigation !== 'boolean') {
-        navigation.enabled = true;
-      }
-      if (pagination && typeof pagination !== 'boolean') {
-        pagination.el = '.swiper-pagination'; // Reattach pagination
-      }
+      this.swiperInstance.params.navigation = {
+        enabled: true,
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        disabledClass: 'swiper-button-disabled'
+      };
       this.swiperInstance.navigation?.init();
-      this.swiperInstance.pagination?.init();
     }
 
     this.swiperInstance.update();

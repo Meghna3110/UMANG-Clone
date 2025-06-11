@@ -11,7 +11,7 @@
             <div class="service-card cursor-pointer" routerLink="/department-details">
               <div class="service-card__body cursor-pointer">
                 <div class="service-card__body__img">
-                  <img [src]="item.image" opacity="1" fetchpriority="low" width="90" height="90" [alt]="item.title">
+                  <img [src]="item.imagePath" [alt]="item.title" width="90" height="90" />
                 </div>
                 <div class="service-card__body__content">
                   <h4 class="mb-2">{{ item.title }}</h4>
