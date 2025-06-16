@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+<div class="container my-4">
+  <!-- Loading and Error States -->
+  <div *ngIf="loading" class="text-center">
+    <p>Loading...</p>
+  </div>
+  <div *ngIf="error" class="alert alert-danger text-center">
+    {{ error }}
+  </div>
+
+  <!-- Main Content -->
+  <div *ngIf="serviceDetails && !loading && !error" class="main-content">
+    <!-- Aadhaar Section -->
+    <section class="main-section mb-5">
+      <h1 class="display-4 fw-bold mb-4 text-center">{{ serviceDetails.service.title || 'Untitled Service' }}</h1>
+      <div class="row align-items-center">
+        <div class="col-md-2 col-4 mb-3 mb-md-0">
+          <img [src]="backendBaseUrl + (serviceDetails.whatsNewItem?.imagePath || '')" [alt]="serviceDetails.service.title || 'Service Image'" class="img-fluid aadhaar-logo" *ngIf="serviceDetails.whatsNewItem?.imagePath" />
+        </div>
+        <div class="col-md-10 col-12">
+          <p class="lead">{{ serviceDetails.service.description || 'No description available' }}</p>
+          <div class="info-buttons mt-3">
+            <button class="btn btn-outline-secondary rounded-pill me-2">Direct Benefit Transfer (DBT)</button>
+            <button class="btn btn-outline-secondary rounded-pill">Utility & Bill Payments</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="contact-section mb-5">
+      <h2 class="h3 fw-bold mb-4">Contact Us</h2>
+      <div class="contact-details d-flex flex-wrap gap-4 mb-3">
+        <span class="d-flex align-items-center">
+          <i class="bi bi-telephone-fill me-2 text-primary"></i>
+          {{ serviceDetails.service.phno || 'N/A' }}
+        </span>
+        <span class="d-flex align-items-center">
+          <i class="bi bi-envelope-fill me-2 text-primary"></i>
+          <a [href]="'mailto:' + serviceDetails.service.email">{{ serviceDetails.service.email || 'N/A' }}</a>
+        </span>
+        <span class="d-flex align-items-center">
+          <i class="bi bi-globe me-2 text-primary"></i>
+          <a [href]="serviceDetails.service.weburl" target="_blank">{{ serviceDetails.service.weburl || 'N/A' }}</a>
+        </span>
+        <span class="d-flex align-items-center">
+          <i class="bi bi-geo-alt-fill me-2 text-primary"></i>
+          Location
+        </span>
+      </div>
+      <div class="working-hours mt-3">
+        <p class="fw-bold">Working Hours:</p>
+        <p>{{ serviceDetails.service.workingHours || 'N/A' }}</p>
+      </div>
+      <div class="address mt-3">
+        <p class="fw-bold">Address:</p>
+        <p>{{ serviceDetails.service.address || 'N/A' }}</p>
+      </div>
+    </section>
+
+    <!-- Sub-Services Section -->
+    <section class="services-section" *ngIf="serviceDetails && serviceDetails.serviceDetails && serviceDetails.serviceDetails.length > 0">
+      <h2 class="h3 fw-bold mb-4">Services</h2>
+      <div class="service-card border rounded p-3 mb-3 d-flex align-items-center flex-column flex-md-row" *ngFor="let detail of serviceDetails.serviceDetails; let i = index">
+        <img [src]="backendBaseUrl + (detail.image_url || '')" [alt]="detail.name || 'Sub-Service Image'" class="service-icon me-md-3 mb-3 mb-md-0" *ngIf="detail.image_url" (load)="onImageLoad(i, backendBaseUrl + detail.image_url)" (error)="onImageError(i, backendBaseUrl + detail.image_url)" />
+        <div class="service-info flex-grow-1">
+          <h3 class="h5">{{ detail.name || 'Untitled Sub-Service' }}</h3>
+          <p>{{ detail.desc || 'No description available' }}</p>
+          <p class="text-muted">Visits (30 Days): {{ detail.visits || 'N/A' }}</p>
+        </div>
+        <button class="btn btn-primary rounded-pill mt-3 mt-md-0">Open</button>
+      </div>
+    </section>
+  </div>
+</div>

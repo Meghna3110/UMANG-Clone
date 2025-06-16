@@ -16,6 +16,34 @@ export interface ApiResponse<T> {
   errorMessage?: string;
 }
 
+export interface ServiceData {
+  id: number;
+  title: string;
+  description: string;
+  keypoints: string;
+  phno: string;
+  email: string;
+  weburl: string;
+  address: string;
+  workingHours: string;
+  isActive: boolean;
+  image: string;
+}
+
+export interface ServiceDetail {
+  id: number;
+  name: string;
+  desc: string;
+  visits: number | null;
+  image_url: string;
+}
+
+export interface ServiceDetailsResponse {
+  whatsNewItem: WhatsNewItem;
+  service: ServiceData;
+  serviceDetails: ServiceDetail[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,4 +61,11 @@ export class ServiceService {
   getTrendingItems(): Observable<ApiResponse<WhatsNewItem[]>> {
     return this.http.get<ApiResponse<WhatsNewItem[]>>('https://localhost:7215/api/TrendingItems/GetAllTrendingItemList');
   }
+
+  getServiceDetails(whatsNewId: number): Observable<ApiResponse<ServiceDetailsResponse>> {
+    return this.http.get<ApiResponse<ServiceDetailsResponse>>(
+      `https://localhost:7215/api/Service/GetWhatsNewServiceDataAndDetailsById/${whatsNewId}`
+    );
+  }
+  
 }

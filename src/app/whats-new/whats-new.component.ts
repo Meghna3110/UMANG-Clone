@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';// import Swiper from 'swiper'
 import { NgFor } from '@angular/common';
 import {Swiper} from 'swiper';
 import {Navigation, Pagination} from 'swiper/modules';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ServiceService,WhatsNewItem } from '../cloneservice/service.service';
 
 @Component({
@@ -17,13 +17,14 @@ import { ServiceService,WhatsNewItem } from '../cloneservice/service.service';
 export class WhatsNewComponent implements OnInit, AfterViewInit {
   newsItems: any[] = [];
 
-  constructor(private ServiceService: ServiceService) {}
+  constructor(private ServiceService: ServiceService, private router: Router) {}
 
     ngOnInit(): void {
     this.ServiceService.getWhatsNewItems().subscribe({
   next: response => {
     if (response.success) {
       this.newsItems = response.data.filter(item => item.isVisible);
+      console.log('WhatsNew Items:', this.newsItems);
     } else {
       console.error('API Error:', response.message, response.errorMessage);
     }
@@ -32,7 +33,9 @@ export class WhatsNewComponent implements OnInit, AfterViewInit {
 });
 
   }
+   
 
+  
   ngAfterViewInit(): void {
     setTimeout(() => {
       new Swiper('.multi-slides', {
@@ -41,6 +44,7 @@ export class WhatsNewComponent implements OnInit, AfterViewInit {
         slidesPerGroup: 1,
         spaceBetween: 10,
         loop: false,
+        simulateTouch: false, //Disable touch simulation to allow clicks
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',

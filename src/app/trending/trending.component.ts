@@ -2,12 +2,12 @@ import { Component, AfterViewInit, OnInit, ViewEncapsulation, ViewChild, Element
 import { NgFor } from '@angular/common';
 import { Swiper } from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
-import { RouterLink } from '@angular/router';
+// import { RouterLink } from '@angular/router';
 import { ServiceService, WhatsNewItem } from '../cloneservice/service.service';
 
 @Component({
   selector: 'app-trending',
-  imports: [NgFor, RouterLink],
+  imports: [NgFor],
   standalone: true,
   templateUrl: './trending.component.html',
   styleUrl: './trending.component.css',
@@ -25,6 +25,7 @@ export class TrendingComponent implements OnInit, AfterViewInit {
       next: response => {
         if (response.success) {
           this.newsItems = response.data.filter(item => item.isVisible);
+          console.log('Trending Items:', this.newsItems); 
           this.initializeSwiper(); // Reinitialize after data load
         } else {
           console.error('API Error:', response.message, response.errorMessage);

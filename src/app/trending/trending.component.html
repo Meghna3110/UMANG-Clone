@@ -7,7 +7,7 @@
     <div class="swiper multi-slides" #swiperContainer>
       <div class="swiper-wrapper">
         <div class="swiper-slide" *ngFor="let item of newsItems">
-          <div class="service-card cursor-pointer" routerLink="/department-details">
+          <div class="service-card cursor-pointer">
             <div class="service-card__body cursor-pointer">
               <div class="service-card__body__img">
                 <img [src]="item.imagePath" [alt]="item.title" width="90" height="90" />
